@@ -51,6 +51,14 @@ const utilities = {
         title: '',
         type: 'item',
         url: '#',
+        icon: 'settings',
+        breadcrumbs: false
+      },
+      {
+        id: 'util-shadow',
+        title: '',
+        type: 'item',
+        url: '#',
         icon: 'arrow',
         breadcrumbs: false
       }

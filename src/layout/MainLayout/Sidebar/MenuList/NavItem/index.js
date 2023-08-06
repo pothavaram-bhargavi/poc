@@ -17,6 +17,7 @@ import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import BarChartOutlinedIcon from '@material-ui/icons/BarChartOutlined';
 import PaymentOutlinedIcon from '@material-ui/icons/PaymentOutlined';
 import ArrowRightAltOutlinedIcon from '@material-ui/icons/ArrowRightAltOutlined';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 // assets
 //import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
@@ -71,28 +72,29 @@ const NavItem = ({ item, level }) => {
   }, [pathname]);
 
   return (
-     <ListItemButton aria-label="Click me"
+     <ListItemButton 
       {...listItemProps}
       disabled={item.disabled}
       sx={{
         borderRadius: `${customization.borderRadius}px`,
-        mb: 0.5,
         alignItems: 'flex-start',
         backgroundColor: level > 1 ? 'transparent !important' : 'inherit',
         py: level > 1 ? 1 : 1.25,
-        pl: `${level * 24}px`
+        pl: `${level * 24}px`,
+        mt: item.icon == 'arrow' ? '130px' : '10px',
       }}
       selected={customization.isOpen.findIndex((id) => id === item.id) > -1}
       onClick={() => itemHandler(item.id)}
      >
-      <ListItemIcon  classes={{ focusVisible: classes.focusStyle }} sx={{ my: 'auto',height:'100px', minWidth: !item?.icon ? 18 : 36 }} tabindex={0} role="button" aria-label={item?.icon}>
+      <ListItemIcon  classes={{ focusVisible: classes.focusStyle }} sx={{ my: 'auto',height:'50px', minWidth: !item?.icon ? 18 : 36 }} tabindex={0} role="button" aria-label={item?.icon}>
       
 
         {item.icon == 'Home' && <HomeOutlinedIcon />}
 
         {item.icon == 'chat' && <BarChartOutlinedIcon/>}
         {item.icon == 'payment' && <PaymentOutlinedIcon/>}
-        {item.icon == 'arrow' && <ArrowRightAltOutlinedIcon/>}
+        {item.icon == 'settings' && <SettingsIcon/>}
+        {item.icon == 'arrow' && <ArrowRightAltOutlinedIcon />}
       </ListItemIcon>
       {/* <ListItemText
         primary={
@@ -117,7 +119,7 @@ const NavItem = ({ item, level }) => {
           avatar={item.chip.avatar && <Avatar>{item.chip.avatar}</Avatar>}
         />
       )} */}
-     </ListItemButton>
+      </ListItemButton>
   );
 };
 

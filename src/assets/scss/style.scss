@@ -4,6 +4,11 @@
 // third-party
 @import '~react-perfect-scrollbar/dist/css/styles.css';
 
+body{
+  background-color: #ffffff !important;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
 // ==============================|| LIGHT BOX ||============================== //
 .fullscreen .react-images__blanket {
   z-index: 1200;

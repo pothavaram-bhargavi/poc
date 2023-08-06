@@ -16,6 +16,8 @@ import CropPortraitIcon from '@mui/icons-material/CropPortrait';
 import BoltOutlinedIcon from '@mui/icons-material/BoltOutlined';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import LocalFireDepartmentOutlinedIcon from '@mui/icons-material/LocalFireDepartmentOutlined';
+import graph from 'assets/images/graph.PNG';
+
 
 
 
@@ -62,27 +64,21 @@ const Dashboard = () => {
       <Grid item xs={12}>
         <Grid container spacing={gridSpacing}>
           <Grid item xs={8}>
-            <Grid container spacing={gridSpacing}>
-              <Grid item lg={2} md={2} sm={2} xs={2}>
-                <QuickAccess name='Transfer' icon={<PaymentOutlinedIcon />} addTransaction={addTransaction} />
-              </Grid>
-              <Grid item lg={2} md={2} sm={2} xs={2}>
-                <QuickAccess name='Electricity' icon={<BoltOutlinedIcon />} addTransaction={addTransaction} />
-              </Grid>
-              <Grid item lg={2} md={2} sm={2} xs={2}>
-                <QuickAccess name='Gas' icon={<LocalFireDepartmentOutlinedIcon />} addTransaction={addTransaction} />
-              </Grid>
-              <Grid item lg={2} md={2} sm={2} xs={2}>
-                <QuickAccess name='Data' icon={<CropPortraitIcon />} addTransaction={addTransaction} />
-              </Grid>
-              <Grid item lg={2} md={2} sm={2} xs={2}>
-                <QuickAccess name='Shopping' icon={<LocalMallOutlinedIcon />} addTransaction={addTransaction} />
-              </Grid>
-              <Grid item lg={2} md={2} sm={2} xs={2}>
-                <QuickAccess name='Shopping' icon={<LocalMallOutlinedIcon />} addTransaction={addTransaction} />
-              </Grid>
+            <Grid container spacing={gridSpacing} >
+            <Grid item xs={12} md={12} >
+              <h3>Quick Access</h3>
+              <div style={{backgroundColor: '#eceff1', display: 'flex', gap:'5px', padding:'10px'}}>
+              <QuickAccess name='Transfer' icon={<PaymentOutlinedIcon />} addTransaction={addTransaction} />
+              <QuickAccess name='Electricity' icon={<BoltOutlinedIcon />} addTransaction={addTransaction} />
+              <QuickAccess name='Gas' icon={<LocalFireDepartmentOutlinedIcon />} addTransaction={addTransaction} />
+              <QuickAccess name='Data' icon={<CropPortraitIcon />} addTransaction={addTransaction} />
+              <QuickAccess name='Shopping' icon={<LocalMallOutlinedIcon />} addTransaction={addTransaction} />
+              <QuickAccess name='Shopping' icon={<LocalMallOutlinedIcon />} addTransaction={addTransaction} />
+              <QuickAccess name='Shopping' icon={<LocalMallOutlinedIcon />} addTransaction={addTransaction} />
+              </div>
+            </Grid>
               <Grid item xs={12} md={12}>
-                <TotalGrowthBarChart isLoading={isLoading} />
+                <img style={{width: '90%'}} src={graph}  alt='bar graph'/>
               </Grid>
             </Grid>
           </Grid>

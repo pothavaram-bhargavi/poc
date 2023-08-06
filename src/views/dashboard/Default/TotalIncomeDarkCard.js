@@ -13,7 +13,7 @@ import TotalIncomeCard from 'ui-component/cards/Skeleton/TotalIncomeCard';
 
 // styles
 const CardWrapper = styled(MainCard)(({ theme }) => ({
-  backgroundColor: theme.palette.primary.dark,
+  backgroundColor: '#1565c0',
   color: theme.palette.primary.light,
   overflow: 'hidden',
   position: 'relative',
@@ -49,11 +49,11 @@ const TotalIncomeDarkCard = ({ balance, isLoading }) => {
       {isLoading ? (
         <TotalIncomeCard />
       ) : (
-        <><h3>Balance</h3>
-          <CardWrapper border={false} content={false} tabIndex={0} role="region" aria-label="Total Income Dark Card">
+        <><h3>Your Card</h3>
+          <CardWrapper border={false} content={false} role="region" aria-label="Total Income Dark Card">
             <Box sx={{ p: 2 }}>
               <List sx={{ py: 0 }}>
-                <ListItem alignItems="center" disableGutters sx={{ py: 0 }} tabIndex={0}>
+                <ListItem alignItems="center" disableGutters sx={{ py: 0 }}>
 
                   <ListItemText
                     sx={{
@@ -63,11 +63,11 @@ const TotalIncomeDarkCard = ({ balance, isLoading }) => {
                     }}
                     aria-label="bank-name-label balance-label"
                   >
-                   <Typography variant="subtitle1" sx={{ color: 'primary.light', mt: 0.25,backgroundColor:'#056fcc' }}>Bank of America</Typography> 
-                  <Typography variant="subtitle2" sx={{ color: 'primary.light', mt: 0.25 ,backgroundColor:'#056fcc'}}>
+                   <Typography variant="subtitle1" sx={{ color: 'primary.light', mt: 0.25}}>Bank of America</Typography> 
+                  <Typography variant="subtitle2" sx={{ color: 'primary.light', mt: 0.25 }}>
                     Balance
                   </Typography>
-                    <Typography variant="h4" sx={{ color: '#fff',backgroundColor:'#0e78d5' }}>
+                    <Typography variant="h4" sx={{ color: '#fff' }}>
                     ${balance}
                   </Typography>
                   </ListItemText>

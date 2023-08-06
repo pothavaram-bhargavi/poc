@@ -32,7 +32,7 @@ const NavGroup = ({ item }) => {
 
   return (
     <>
-      <Logo />
+      
       <List
         subheader={
           item.title && (
@@ -47,6 +47,7 @@ const NavGroup = ({ item }) => {
           )
         }
       >
+        <li style={{'paddingLeft': '20px', height: '200px'}}><Logo /></li>
         {items}
       </List>
 
