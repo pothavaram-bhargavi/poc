@@ -7,7 +7,6 @@ import { Grid } from '@mui/material';
 // import EarningCard from './EarningCard';
 import PopularCard from './PopularCard';
 import TotalIncomeDarkCard from './TotalIncomeDarkCard';
-import TotalGrowthBarChart from './TotalGrowthBarChart';
 import { gridSpacing } from 'store/constant';
 import Overview from './Overview';
 import QuickAccess from './QuickAccess';
@@ -78,7 +77,7 @@ const Dashboard = () => {
               </div>
             </Grid>
               <Grid item xs={12} md={12}>
-                <img style={{width: '90%'}} src={graph}  alt='bar graph'/>
+                <img style={{width: '90%'}} src={graph}  alt='bar graph' role='image' tabIndex={0}/>
               </Grid>
             </Grid>
           </Grid>

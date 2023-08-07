@@ -31,10 +31,10 @@ export default function TransactionDialog({ openDialog, transactiontype, setTran
     return (
         <div>
             <Dialog open={open} onClose={handleClose} role="dialog" aria-modal="true" aria-label="Add Transaction Dialog">
-                <DialogTitle>Add Transction</DialogTitle>
+                <DialogTitle>Add Transaction</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Add Transction Details
+                        Add Transaction Details
                     </DialogContentText>
                     {(transactiontype == 'credit' || transactiontype == 'deposit') && 
                                         <><InputLabel id="demo-simple-select-label">Select Transfer Type</InputLabel>
@@ -55,14 +55,14 @@ export default function TransactionDialog({ openDialog, transactiontype, setTran
                         <MenuItem value={'deposit'}>Withdraw Money</MenuItem>
                     </Select></>}
                     <TextField
-                        autoFocus
+                        
                         margin="dense"
                         id="tname"
                         label="Transction Name"
                         type="text"
                         fullWidth
                         variant="standard"
-                        placeholder="Transction Name" value={transactionName} onChange={(e) => setTransactionName(e.target.value)}
+                        placeholder="Transction Name" value={transactionName} onChange={(e) => setTransactionName(e.target.value)} tabIndex={0}
                     />
 
                     <TextField
@@ -73,7 +73,7 @@ export default function TransactionDialog({ openDialog, transactiontype, setTran
                         type="text"
                         fullWidth
                         variant="standard"
-                        placeholder='Enter money' value={amount} onChange={(e) => setAmount(e.target.value)}
+                        placeholder='Enter money' value={amount} onChange={(e) => setAmount(e.target.value)} tabIndex={0}
                     />
                 </DialogContent>
                 <DialogActions>

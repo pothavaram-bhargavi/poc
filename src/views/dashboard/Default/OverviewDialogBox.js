@@ -26,7 +26,7 @@ const OverviewDialogBox = ({openDialog, handleClose})=>{
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose} tabIndex={0}>Submit</Button>
+        <Button onClick={handleClose} tabIndex={0} >Submit</Button>
         
       </DialogActions>
     </Dialog>

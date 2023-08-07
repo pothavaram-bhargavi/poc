@@ -49,7 +49,7 @@ const TotalIncomeDarkCard = ({ balance, isLoading }) => {
       {isLoading ? (
         <TotalIncomeCard />
       ) : (
-        <><h3>Your Card</h3>
+        <><h2>Your Card</h2>
           <CardWrapper border={false} content={false} role="region" aria-label="Total Income Dark Card">
             <Box sx={{ p: 2 }}>
               <List sx={{ py: 0 }}>

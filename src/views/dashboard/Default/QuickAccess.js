@@ -98,6 +98,7 @@ const QuickAccess = ({ name, icon, addTransaction }) => {
                                     color:'black',
                                     
                                 }}
+                                
                             >
                                 {name}
                             </Typography>

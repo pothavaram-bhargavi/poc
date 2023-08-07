@@ -13,6 +13,7 @@ import IconButton from '@mui/material/IconButton';
 import MainCard from 'ui-component/cards/MainCard';
 import OverviewDialogBox from './OverviewDialogBox';
 import SearchIcon from '@mui/icons-material/Search';
+import { IconClockHour2 } from '@tabler/icons';
 
 
 const useStyles = makeStyles(() => ({
@@ -105,11 +106,11 @@ const Overview = () => {
             <Grid container justifyContent={'space-around'} style={{ alignItems: 'center' }}>
               <Grid item lg={8} md={8} sm={8} xs={8}>
                 <Box className="card-content" >
-                  <h3 style={{ marginBottom: '10px' }}>Get Exclusive Discount for Payment for any payment method</h3>
+                  <h2 style={{ marginBottom: '10px' }}>Get Exclusive Discount for Payment for any payment method</h2>
                   <div>by upgrading your plan to premium</div></Box>
               </Grid>
               <Grid item lg={4} md={4} sm={4} xs={4} style={{ position: 'relative', zIndex: '30000' }}>
-                <Button classes={{ focusVisible: classes.focusStyle }} className={classes.hoverStyle} variant="outlined" style={{ backgroundColor: 'white', color: '#0378d5', '&:hover': { color: 'green' } }} tabIndex={0} role="button" aria-label="Upgrade Now" onClick={() => openDialog()}>Upgarde Now</Button>
+                <Button classes={{ focusVisible: classes.focusStyle }} className={classes.hoverStyle} variant="outlined" style={{ backgroundColor: 'white', color: '#0378d5', '&:hover': { color: 'green' } }} tabIndex={0} role="button" aria-label="Upgrade Now" onClick={() => openDialog()}>Upgrade Now</Button>
                 <OverviewDialogBox handleClose={handleClose} openDialog={open} />
 
               </Grid>

@@ -18,7 +18,7 @@ const Logo = () => {
     
       // if you want to use image instead of svg uncomment following, and comment out <svg> element.
      
-      <img src={face} alt="face" width="50" height='70' style={{border:'1px solid black',borderRadius:'25px'}}/>
+      <img src={face} alt="face" width="50" height='70' style={{border:'1px solid black',borderRadius:'25px'}} tabIndex={0}/>
     
     // <svg width="92" height="32" viewBox="0 0 92 32" fill="none" xmlns="http://www.w3.org/2000/svg">
     //   <path
