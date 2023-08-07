@@ -72,8 +72,6 @@ const Dashboard = () => {
               <QuickAccess name='Gas' icon={<LocalFireDepartmentOutlinedIcon />} addTransaction={addTransaction} />
               <QuickAccess name='Data' icon={<CropPortraitIcon />} addTransaction={addTransaction} />
               <QuickAccess name='Shopping' icon={<LocalMallOutlinedIcon />} addTransaction={addTransaction} />
-              <QuickAccess name='Shopping' icon={<LocalMallOutlinedIcon />} addTransaction={addTransaction} />
-              <QuickAccess name='Shopping' icon={<LocalMallOutlinedIcon />} addTransaction={addTransaction} />
               </div>
             </Grid>
               <Grid item xs={12} md={12}>

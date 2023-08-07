@@ -34,6 +34,8 @@ const useStyles = makeStyles(() => ({
 const Overview = () => {
   const classes = useStyles();
   const [showSearch, setShowSearch] = useState(false);
+  const [searchValue, setSearchValue] = useState('');
+
   const [open, setOpen] = useState(false);
   const openDialog = () => setOpen(true);
   const [showMsg, setShowMsg] = useState(false);
@@ -83,17 +85,19 @@ const Overview = () => {
           <h1>Overview</h1>
         </Grid>
         <Grid item lg={6} md={6} sm={6} xs={6}>
-          <Grid container direction="row" >
+          <Grid container direction="row" justifyContent={'space-between'}>
             <Grid item>
               {showSearch && <InputBase
                 sx={{ ml: 1, flex: 1 }}
                 placeholder="Search"
                 inputProps={{ 'aria-label': 'search' }}
                 tabIndex={0}
+                value={searchValue}
+                onChange={(event) => setSearchValue(event.target.value)}
               />}
             </Grid>
             <Grid item>
-              <IconButton onClick={() => setShowSearch(!showSearch)} type="button" sx={{ p: '10px' }} aria-label="search">
+              <IconButton onClick={() => {!searchValue ? setShowSearch(!showSearch) : setShowSearch(true)}} type="button" sx={{ p: '10px' }} aria-label="search">
                 <SearchIcon />
               </IconButton>
             </Grid>
@@ -103,13 +107,13 @@ const Overview = () => {
       <CardWrapper border={false} content={false} tabIndex={0} role="region" aria-label="Overview Section" >
         <Box sx={{ p: 2.25 }}>
           <Grid container direction="column">
-            <Grid container justifyContent={'space-around'} style={{ alignItems: 'center' }}>
+            <Grid container justifyContent={'space-between'} style={{ alignItems: 'center' }}>
               <Grid item lg={8} md={8} sm={8} xs={8}>
                 <Box className="card-content" >
                   <h2 style={{ marginBottom: '10px' }}>Get Exclusive Discount for Payment for any payment method</h2>
-                  <div>by upgrading your plan to premium</div></Box>
+                  <h3>by upgrading your plan to premium</h3></Box>
               </Grid>
-              <Grid item lg={4} md={4} sm={4} xs={4} style={{ position: 'relative', zIndex: '30000' }}>
+              <Grid item lg={4} md={4} sm={4} xs={4} style={{position: 'relative', zIndex: '30000' }}>
                 <Button classes={{ focusVisible: classes.focusStyle }} className={classes.hoverStyle} variant="outlined" style={{ backgroundColor: 'white', color: '#0378d5', '&:hover': { color: 'green' } }} tabIndex={0} role="button" aria-label="Upgrade Now" onClick={() => openDialog()}>Upgrade Now</Button>
                 <OverviewDialogBox handleClose={handleClose} openDialog={open} />
 

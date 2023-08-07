@@ -53,7 +53,7 @@ const QuickAccess = ({ name, icon, addTransaction }) => {
     const [open, setOpen] = useState(false);
     const openDialog = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    const [transactiontype, setTransactiontype] = React.useState('credit');
+    const [transactiontype, setTransactiontype] = React.useState('');
 
 
     React.useEffect(() => {
@@ -69,7 +69,7 @@ const QuickAccess = ({ name, icon, addTransaction }) => {
     return (
         <>
 
-            <CardWrapper onClick={openDialog} border={false} content={false} tabIndex={0} role="button" aria-label={`Quick access to ${name}`} >
+            <CardWrapper role="button" onClick={openDialog}  onKeyDown={(event) => { if ( event.key === "Enter") { openDialog() }}} border={false} content={false} tabIndex={0} role="button" aria-label={`Quick access to ${name}`} >
                 <Box sx={{ p: 2.25 }}>
                     <Grid container direction="column">
                         <Grid item>

@@ -8,7 +8,7 @@ import { makeStyles } from '@mui/styles';
 // material-ui
 import { useTheme } from '@mui/material/styles';
 //import { Avatar, Chip, ListItemButton, ListItemIcon, ListItemText, Typography, useMediaQuery } from '@mui/material';
-import { ListItemButton, ListItemIcon, useMediaQuery } from '@mui/material';
+import { ListItemButton, ListItemText, useMediaQuery } from '@mui/material';
 
 
 // project imports
@@ -72,7 +72,7 @@ const NavItem = ({ item, level }) => {
   }, [pathname]);
 
   return (
-     <ListItemButton 
+     <ListItemText 
       {...listItemProps}
       disabled={item.disabled}
       sx={{
@@ -84,18 +84,18 @@ const NavItem = ({ item, level }) => {
         mt: item.icon == 'arrow' ? '130px' : '10px',
       }}
       selected={customization.isOpen.findIndex((id) => id === item.id) > -1}
+      name={item.icon +' link' ?? ''}
+      tabIndex={0}
       onClick={() => itemHandler(item.id)}
      >
-      <ListItemIcon  classes={{ focusVisible: classes.focusStyle }} sx={{ my: 'auto',height:'50px', minWidth: !item?.icon ? 18 : 36 }} tabindex={0} role="button" aria-label={item?.icon}>
       
 
-        {item.icon == 'Home' && <HomeOutlinedIcon />}
+        {item.icon == 'Home' && <HomeOutlinedIcon name="Home" />}
 
-        {item.icon == 'chat' && <BarChartOutlinedIcon/>}
-        {item.icon == 'payment' && <PaymentOutlinedIcon/>}
-        {item.icon == 'settings' && <SettingsIcon/>}
-        {item.icon == 'arrow' && <ArrowRightAltOutlinedIcon />}
-      </ListItemIcon>
+        {item.icon == 'chat' && <BarChartOutlinedIcon name="Chat"/>}
+        {item.icon == 'payment' && <PaymentOutlinedIcon name="Payment"/>}
+        {item.icon == 'settings' && <SettingsIcon name="Settings"/>}
+        {item.icon == 'arrow' && <ArrowRightAltOutlinedIcon name="Logout" />}
       {/* <ListItemText
         primary={
           <Typography variant={customization.isOpen.findIndex((id) => id === item.id) > -1 ? 'h5' : 'body1'} color="inherit">
@@ -119,7 +119,7 @@ const NavItem = ({ item, level }) => {
           avatar={item.chip.avatar && <Avatar>{item.chip.avatar}</Avatar>}
         />
       )} */}
-      </ListItemButton>
+      </ListItemText>
   );
 };
 

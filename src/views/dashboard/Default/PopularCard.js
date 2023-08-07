@@ -59,14 +59,14 @@ const PopularCard = ({ transactions }) => {
                     <Grid item>
                       <Grid container alignItems="center" justifyContent="space-between">
                         <Grid item>
-                          {item.type === 'credit' && <Typography variant="subtitle1" color="inherit">
+                          {item.type === 'credit' && <Typography variant="subtitle1" size="14pt" color="inherit">
                             ${item.amount}
                           </Typography>}
-                          {item.type !== 'credit' && <Typography variant="subtitle1" color="red">
+                          {item.type !== 'credit' && <Typography variant="subtitle1" size="14pt" color="red">
                             -${item.amount}
                           </Typography>}
 
-                          <Typography variant="subtitle2" color={item.type === 'credit' ? "inherit" : 'red'}>
+                          <Typography variant="subtitle2" size="14pt" color={item.type === 'credit' ? "inherit" : 'red'}>
                             {item.type}
                           </Typography>
                         </Grid>

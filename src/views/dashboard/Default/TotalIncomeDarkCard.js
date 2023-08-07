@@ -63,8 +63,8 @@ const TotalIncomeDarkCard = ({ balance, isLoading }) => {
                     }}
                     aria-label="bank-name-label balance-label"
                   >
-                   <Typography variant="subtitle1" sx={{ color: 'primary.light', mt: 0.25}}>Bank of America</Typography> 
-                  <Typography variant="subtitle2" sx={{ color: 'primary.light', mt: 0.25 }}>
+                   <Typography variant="h3" sx={{ color: 'primary.light', mt: 0.25}}>Bank of America</Typography> 
+                  <Typography variant="h4" sx={{ color: 'primary.light', mt: 0.25 }}>
                     Balance
                   </Typography>
                     <Typography variant="h4" sx={{ color: '#fff' }}>
