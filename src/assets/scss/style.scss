@@ -6,7 +6,8 @@
 
 body{
   background-color: #ffffff !important;
-  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  //Bankfont-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 // ==============================|| LIGHT BOX ||============================== //
@@ -130,4 +131,20 @@ body{
   75% {
     transform: translateX(10px);
   }
+}
+
+
+.cardType{
+  position: absolute;
+  width: 87px;
+  height: 74px;
+  border-radius: 50%;
+  top: -35px;
+  right: -19px;
+  color: white;
+  background-color: #626cc5;
+  text-align: center;
+  padding-top: 26px;
+  font-weight: bold;
+  font-size: 16px;
 }

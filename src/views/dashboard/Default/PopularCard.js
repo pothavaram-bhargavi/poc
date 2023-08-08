@@ -27,7 +27,7 @@ const PopularCard = ({ transactions }) => {
           <Grid item xs={12}>
             <Grid container alignContent="center" justifyContent="space-between">
               <Grid item>
-                <Typography variant="h4">Recent Transction</Typography>
+                <Typography variant="h4">Recent Transactions</Typography>
               </Grid>
               <Grid item>
                 ...
@@ -43,13 +43,13 @@ const PopularCard = ({ transactions }) => {
                     <Grid item xs={2}>
                       <Avatar
                         variant="rounded"
-                        color={item.type === 'credit' ? "inherit" : 'red'}
+                        color={item.type === 'credit' ? "inherit" : '#ef0000'}
                       >
                         {item.icon}
                       </Avatar>
                     </Grid>
                     <Grid item>
-                      <Typography variant="subtitle1" color="inherit">
+                      <Typography variant="h5" color="inherit">
                         {item.transactionName}
                       </Typography>
                       <Typography variant="subtitle2" color="inherit">
@@ -59,14 +59,14 @@ const PopularCard = ({ transactions }) => {
                     <Grid item>
                       <Grid container alignItems="center" justifyContent="space-between">
                         <Grid item>
-                          {item.type === 'credit' && <Typography variant="subtitle1" size="14pt" color="inherit">
+                          {item.type === 'credit' && <Typography variant="h5" size="14pt" color="inherit">
                             ${item.amount}
                           </Typography>}
-                          {item.type !== 'credit' && <Typography variant="subtitle1" size="14pt" color="red">
+                          {item.type !== 'credit' && <Typography variant="h5" size="14pt" color="#ef0000">
                             -${item.amount}
                           </Typography>}
 
-                          <Typography variant="subtitle2" size="14pt" color={item.type === 'credit' ? "inherit" : 'red'}>
+                          <Typography variant="subtitle2" size="14pt" color={item.type === 'credit' ? "inherit" : '#ef0000'}>
                             {item.type}
                           </Typography>
                         </Grid>

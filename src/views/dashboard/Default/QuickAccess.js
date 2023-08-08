@@ -12,8 +12,8 @@ import MainCard from 'ui-component/cards/MainCard';
 
 const CardWrapper = styled(MainCard)(({ theme }) => ({
   backgroundColor: '#fff',
-  width: 100,
-  height: 100
+  width: 80,
+  height: 80
 //   color: '#fff',
 //   overflow: 'hidden',
 //   position: 'relative',
@@ -69,7 +69,7 @@ const QuickAccess = ({ name, icon, addTransaction }) => {
     return (
         <>
 
-            <CardWrapper role="button" onClick={openDialog}  onKeyDown={(event) => { if ( event.key === "Enter") { openDialog() }}} border={false} content={false} tabIndex={0} role="button" aria-label={`Quick access to ${name}`} >
+            <CardWrapper role="button" onClick={openDialog}  onKeyDown={(event) => { if ( event.key === "Enter") { openDialog() }}} border={false} content={false} tabIndex={0} aria-label={`Quick Access to ${name}`} >
                 <Box sx={{ p: 2.25 }}>
                     <Grid container direction="column">
                         <Grid item>
@@ -96,6 +96,7 @@ const QuickAccess = ({ name, icon, addTransaction }) => {
                                     fontSize: '0.8rem',
                                     fontWeight: 300,
                                     color:'black',
+                                    
                                     
                                 }}
                                 

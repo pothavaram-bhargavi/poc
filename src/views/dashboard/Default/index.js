@@ -53,7 +53,7 @@ const Dashboard = () => {
       <Grid item xs={12}>
         <Grid container spacing={gridSpacing}>
           <Grid item lg={8} md={8} sm={8} xs={8}>
-            <Overview />
+            <Overview stlye={{width:'90%', padding: '10px'}} />
           </Grid>
           <Grid item sm={4} xs={4} md={4} lg={4}>
             <TotalIncomeDarkCard balance={balance} isLoading={isLoading} />
@@ -65,17 +65,33 @@ const Dashboard = () => {
           <Grid item xs={8}>
             <Grid container spacing={gridSpacing} >
             <Grid item xs={12} md={12} >
-              <h3>Quick Access</h3>
-              <div style={{backgroundColor: '#eceff1', display: 'flex', gap:'5px', padding:'10px'}}>
-              <QuickAccess name='Transfer' icon={<PaymentOutlinedIcon />} addTransaction={addTransaction} />
-              <QuickAccess name='Electricity' icon={<BoltOutlinedIcon />} addTransaction={addTransaction} />
-              <QuickAccess name='Gas' icon={<LocalFireDepartmentOutlinedIcon />} addTransaction={addTransaction} />
-              <QuickAccess name='Data' icon={<CropPortraitIcon />} addTransaction={addTransaction} />
-              <QuickAccess name='Shopping' icon={<LocalMallOutlinedIcon />} addTransaction={addTransaction} />
+              <h3 style={{color:'black'}}>Quick Access</h3>
+              <div style={{display: 'flex', background:'#f7f8fa', gap:'25px', padding:'5px', width:'91.5%'}}>
+              <div style={{boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.1)',borderRadius:'5px'}}>
+               <QuickAccess name='Transfer' icon={<PaymentOutlinedIcon />} addTransaction={addTransaction} />
+              </div>
+              <div style={{boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.1)'}}>
+                <QuickAccess name='Electricity' icon={<BoltOutlinedIcon />} addTransaction={addTransaction} />
+              </div>
+              <div style={{boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.1)'}}>
+                <QuickAccess name='Gas' icon={<LocalFireDepartmentOutlinedIcon />} addTransaction={addTransaction} />
+              </div>
+              <div style={{boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.1)'}}>
+                 <QuickAccess name='Data' icon={<CropPortraitIcon />} addTransaction={addTransaction} />
+              </div>
+              <div style={{boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.1)'}}>
+                 <QuickAccess name='Shopping' icon={<LocalMallOutlinedIcon />} addTransaction={addTransaction} />
+              </div>
+              <div style={{boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.1)'}}>
+                 <QuickAccess name='fooder' icon={<LocalMallOutlinedIcon />} addTransaction={addTransaction} />
+              </div>
+              <div style={{boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.1)'}}>
+                 <QuickAccess name='groceries' icon={<LocalMallOutlinedIcon />} addTransaction={addTransaction} />
+              </div>
               </div>
             </Grid>
               <Grid item xs={12} md={12}>
-                <img style={{width: '90%'}} src={graph}  alt='bar graph' role='image' tabIndex={0}/>
+                <img style={{width: '90%'}} src={graph}  alt='bar graph' tabIndex={0}/>
               </Grid>
             </Grid>
           </Grid>

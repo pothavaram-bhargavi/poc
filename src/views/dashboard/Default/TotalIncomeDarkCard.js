@@ -13,10 +13,11 @@ import TotalIncomeCard from 'ui-component/cards/Skeleton/TotalIncomeCard';
 
 // styles
 const CardWrapper = styled(MainCard)(({ theme }) => ({
-  backgroundColor: '#1565c0',
+  backgroundColor: '#505cc2',
   color: theme.palette.primary.light,
   overflow: 'hidden',
   position: 'relative',
+  width:'90%',
   '&:after': {
     content: '""',
     position: 'absolute',
@@ -51,7 +52,7 @@ const TotalIncomeDarkCard = ({ balance, isLoading }) => {
       ) : (
         <><h2>Your Card</h2>
           <CardWrapper border={false} content={false} role="region" aria-label="Total Income Dark Card">
-            <Box sx={{ p: 2 }}>
+            <Box sx={{ p: 2,borderRadius:'20px' }}>
               <List sx={{ py: 0 }}>
                 <ListItem alignItems="center" disableGutters sx={{ py: 0 }}>
 
@@ -63,11 +64,12 @@ const TotalIncomeDarkCard = ({ balance, isLoading }) => {
                     }}
                     aria-label="bank-name-label balance-label"
                   >
-                   <Typography variant="h3" sx={{ color: 'primary.light', mt: 0.25}}>Bank of America</Typography> 
-                  <Typography variant="h4" sx={{ color: 'primary.light', mt: 0.25 }}>
+                  <div className="cardType">VISA</div>
+                   <Typography variant="h3" sx={{ color: 'primary.light', mt: 0.15,fontSize:'14px'}}>Bank of America</Typography> 
+                  <Typography variant="h4" sx={{ color: 'primary.light', mt: 0.35,fontSize:'8px' }}>
                     Balance
                   </Typography>
-                    <Typography variant="h4" sx={{ color: '#fff' }}>
+                    <Typography variant="h4" sx={{ fontSize:'16px', color: '#fff',mt: 0.35 }}>
                     ${balance}
                   </Typography>
                   </ListItemText>
