@@ -66,7 +66,7 @@ const TotalIncomeDarkCard = ({ balance, isLoading }) => {
                   >
                   <div className="cardType">VISA</div>
                    <Typography variant="h3" sx={{ color: 'primary.light', mt: 0.15,fontSize:'14px'}}>Bank of America</Typography> 
-                  <Typography variant="h4" sx={{ color: 'primary.light', mt: 0.35,fontSize:'8px' }}>
+                  <Typography variant="h4" sx={{ color: 'primary.light', mt: 0.35,fontSize:'12px' }}>
                     Balance
                   </Typography>
                     <Typography variant="h4" sx={{ fontSize:'16px', color: '#fff',mt: 0.35 }}>

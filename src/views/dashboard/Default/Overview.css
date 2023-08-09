@@ -4,3 +4,13 @@ Button:focus{
 Button:hover{
     color:pink;
 }
+
+.alert  {
+    transition:  all 0.2s ease-in-out;
+    opacity: 0;
+  }
+  
+  .visible {
+    opacity: 1;
+    transform: translateY(1.25rem);
+  }

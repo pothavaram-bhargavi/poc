@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { makeStyles } from '@mui/styles';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
-
+import './Overview.css';
 
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
@@ -35,12 +35,21 @@ const Overview = () => {
   const classes = useStyles();
   const [showSearch, setShowSearch] = useState(false);
   const [searchValue, setSearchValue] = useState('');
+  const [focusButton, setFocusButton] = useState(false);
 
   const [open, setOpen] = useState(false);
   const openDialog = () => setOpen(true);
   const [showMsg, setShowMsg] = useState(false);
 
-  const handleClose = () => { setOpen(false); setShowMsg(true) }
+  const handleClose = () => {
+    setOpen(false); 
+    setFocusButton(true);
+  }
+
+  const addEmail = () => {
+    setOpen(false); setShowMsg(true); setTimeout(() => {setShowMsg(false); setFocusButton(false)}, 2500)
+
+  }
 
   const CardWrapper = styled(MainCard)(({ theme }) => ({
     backgroundColor: '#505cc2',
@@ -48,7 +57,7 @@ const Overview = () => {
     overflow: 'hidden',
     position: 'relative',
     zIndex: 50,
-    width:'90%',
+    width: '90%',
     '&:after': {
       content: '""',
       position: 'absolute',
@@ -63,7 +72,7 @@ const Overview = () => {
         right: -140
       }
     },
-    '.topCorner': { 
+    '.topCorner': {
       content: '""',
       position: 'absolute',
       width: 245,
@@ -72,7 +81,7 @@ const Overview = () => {
       borderRadius: '50%',
       top: -63,
       left: -107,
-      zIndex:100,
+      zIndex: 100,
     },
     '&:before': {
       content: '""',
@@ -92,7 +101,7 @@ const Overview = () => {
 
   return (
     <>
-      <Grid container direction="row" justifyContent={'space-between'} style={{width: '90%'}}>
+      <Grid container direction="row" justifyContent={'space-between'} style={{ width: '90%' }}>
         <Grid item lg={6} md={6} sm={6} xs={6}>
           <h1>Overview</h1>
         </Grid>
@@ -109,7 +118,7 @@ const Overview = () => {
               />}
             </Grid>
             <Grid item>
-              <IconButton onClick={() => {!searchValue ? setShowSearch(!showSearch) : setShowSearch(true)}} type="button" sx={{ p: '10px' }} aria-label="search">
+              <IconButton onClick={() => { !searchValue ? setShowSearch(!showSearch) : setShowSearch(true) }} type="button" sx={{ p: '10px' }} aria-label="search">
                 <SearchIcon />
               </IconButton>
             </Grid>
@@ -118,18 +127,17 @@ const Overview = () => {
       </Grid>
       <CardWrapper border={false} content={false} tabIndex={0} role="region" aria-label="Overview Section" >
         <div className='topCorner'></div>
-        <Box sx={{ p: 1.25,borderRadius:'20px'}}>
+        <Box sx={{ p: 1.25, borderRadius: '20px' }}>
           <Grid container direction="column">
             <Grid container justifyContent={'space-between'} style={{ alignItems: 'center', zIndex: 10000, paddingLeft: '20px', justifyContent: 'space-between' }}>
               <Grid item lg={8} md={8} sm={8} xs={8}>
                 <Box className="card-content" >
-                  <h2 style={{ marginBottom: '10px',zIndex:10000, fontSize:'18px' }}>Get Exclusive discounts for any payment method</h2>
-                  <h3 style={{fontSize:'12px'}}>by upgrading your plan to premium</h3></Box>
+                  <h2 style={{ marginBottom: '10px', zIndex: 10000, fontSize: '18px' }}>Get Exclusive discounts for any payment method</h2>
+                  <h3 style={{ fontSize: '12px' }}>by upgrading your plan to premium</h3></Box>
               </Grid>
-              <Grid item lg={4} md={4} sm={4} xs={4} style={{position: 'relative' }}>
-                <Button classes={{ focusVisible: classes.focusStyle }} className={classes.hoverStyle} variant="outlined" style={{ backgroundColor: 'white', color: '#0378d5',border:'1px solid white',borderRadius:'18px', marginLeft:'80px' }} tabIndex={0} role="button" aria-label="Upgrade Now" onClick={() => openDialog()}>Upgrade Now</Button>
-                <OverviewDialogBox handleClose={handleClose} openDialog={open} />
-
+              <Grid item lg={4} md={4} sm={4} xs={4} style={{ position: 'relative' }}>
+                <Button autoFocus={focusButton} classes={{ focusVisible: classes.focusStyle }} className={classes.hoverStyle} variant="outlined" style={{ backgroundColor: 'white', color: '#0378d5', border: '1px solid white', borderRadius: '18px', marginLeft: '80px' }} tabIndex={0} role="button" aria-label="Upgrade Now" onClick={() => openDialog()}>Upgrade Now</Button>
+                <OverviewDialogBox addEmail={addEmail} handleClose={handleClose} openDialog={open} />
               </Grid>
             </Grid>
           </Grid>
@@ -137,7 +145,7 @@ const Overview = () => {
 
       </CardWrapper>
 
-      {showMsg && <p role="alert" aria-live="assertive"><Alert severity="success">The email is submitted successfully!</Alert></p>}
+      {showMsg && <div className={showMsg ? "visible" : "alert"} role="alert" aria-live="assertive"><Alert severity="success">The email is submitted successfully!</Alert></div>}
     </>
   );
 }

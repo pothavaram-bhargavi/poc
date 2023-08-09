@@ -38,17 +38,18 @@ const PopularCard = ({ transactions }) => {
             {transactions && transactions.map((item) => {
               return (<><Grid container direction="column">
 
-                <Grid item xs={8}>
+                <Grid item xs={12}>
                   <Grid container alignItems="center" justifyContent="space-between">
                     <Grid item xs={2}>
                       <Avatar
                         variant="rounded"
-                        color={item.type === 'credit' ? "inherit" : '#ef0000'}
+                        backgroundColor={item.type === 'credit' ? "#def5de" : '#fce8d7'}
+                        style={{backgroundColor: item.type === 'credit' ? "#def5de" : '#fce8d7', color: item.type === 'credit' ? "#6faf6f" : '#d68b88'}}
                       >
                         {item.icon}
                       </Avatar>
                     </Grid>
-                    <Grid item>
+                    <Grid item xs={8}>
                       <Typography variant="h5" color="inherit">
                         {item.transactionName}
                       </Typography>
@@ -56,17 +57,17 @@ const PopularCard = ({ transactions }) => {
                         {item.date}
                       </Typography>
                     </Grid>
-                    <Grid item>
+                    <Grid item  xs={2}>
                       <Grid container alignItems="center" justifyContent="space-between">
                         <Grid item>
-                          {item.type === 'credit' && <Typography variant="h5" size="14pt" color="inherit">
+                          {item.type === 'credit' && <Typography  variant="h5" size="14pt" color="#448444">
                             ${item.amount}
                           </Typography>}
-                          {item.type !== 'credit' && <Typography variant="h5" size="14pt" color="#ef0000">
+                          {item.type !== 'credit' && <Typography variant="h5" size="14pt" color="#ac615e">
                             -${item.amount}
                           </Typography>}
 
-                          <Typography variant="subtitle2" size="14pt" color={item.type === 'credit' ? "inherit" : '#ef0000'}>
+                          <Typography variant="subtitle2" size="14pt" color={item.type === 'credit' ? "inherit" : 'inherit'}>
                             {item.type}
                           </Typography>
                         </Grid>

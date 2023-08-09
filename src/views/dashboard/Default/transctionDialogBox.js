@@ -5,7 +5,8 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';import Box from '@mui/material/Box';
+import DialogTitle from '@mui/material/DialogTitle';
+import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -17,29 +18,29 @@ export default function TransactionDialog({ openDialog, transactiontype, setTran
     const [amount, setAmount] = React.useState(0);
     const [transactionName, setTransactionName] = React.useState('');
 
-    const [errors, setErrors] = React.useState({type: '', amount: '', name: ''});
+    const [errors, setErrors] = React.useState({ type: '', amount: '', name: '' });
 
     const changeType = (e) => {
         setTransactiontype(e.target.value);
     }
 
-    const add =() => { 
-        const err = {...errors};
-        if(transactiontype === ''){
-           err.type = 'Transction type required';
-        }else{
+    const add = () => {
+        const err = { ...errors };
+        if (transactiontype === '') {
+            err.type = 'Transction type required';
+        } else {
             err.type = '';
-        } 
-        
-        if(transactionName === ''){
-           err.name ='Transction name required';
-        }else{
+        }
+
+        if (transactionName === '') {
+            err.name = 'Transction name required';
+        } else {
             err.name = '';
         }
-        
-        if(amount === ''){
-            err.amount ='Transction amount required';
-        }else{
+
+        if (amount === '' || amount === 0) {
+            err.amount = 'Transction amount required';
+        } else {
             err.amount = '';
         }
 
@@ -48,12 +49,15 @@ export default function TransactionDialog({ openDialog, transactiontype, setTran
         console.log(transactionName, transactiontype, amount);
         console.log(errors);
 
-        if(transactionName !== '' && transactiontype !== '' && amount !== ''){
-            addTransaction(transactionName, transactiontype, amount); 
+        if (transactionName !== '' && transactiontype !== '' && (amount !== '' || amount > 0)) {
+            addTransaction(transactionName, transactiontype, amount);
+            setTransactiontype('');
+            setTransactionName('');
+            setAmount('');
             handleClose()
         }
-     }
-    
+    }
+
     React.useEffect(() => {
         setTransactiontype(transactiontype);
     }, [transactiontype])
@@ -63,62 +67,67 @@ export default function TransactionDialog({ openDialog, transactiontype, setTran
         setOpen(openDialog);
     }, [openDialog])
 
-    
+
+    const closeBox = () => {
+        setTransactiontype('');
+            setTransactionName('');
+            setAmount('');
+            handleClose()
+    }
+
+
 
     return (
         <div>
-            <Dialog open={open} onClose={handleClose} role="dialog" aria-modal="true" aria-label="Add Transaction Dialog">
+            <Dialog open={open} onClose={closeBox} aria-label="Add Transaction Dialog">
                 <DialogTitle>Add Transaction</DialogTitle>
                 <DialogContent>
-                    <DialogContentText>
-                        Add Transaction Details
-                    </DialogContentText>
-                    <Box sx={{ minWidth: 300 }}>
-      <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Select Transfer Type</InputLabel>
+                    <Box sx={{ minWidth: 300, marginTop: 2 }}>
+                        <FormControl fullWidth>
+                            <InputLabel id="demo-simple-select-label">Select Transfer Type</InputLabel>
+                            
+                            <Select
+                                required
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={transactiontype}
+                                label="Transction type"
+                                error={errors.type}
+                                onChange={(event) => changeType(event)}
+                                
+                            >
 
-                    <Select
-                        required
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={transactiontype}
-                        label="Transction type"
-                        error={errors.type}
-                        onChange={(event) => changeType(event)}
-                        tabIndex={0}
-                    >
+                                <MenuItem  tabIndex={0} value={'credit'}>Add Money</MenuItem>
 
-                        <MenuItem value={'credit'}>Add Money</MenuItem>
+                                <MenuItem tabIndex={0} value={'deposit'}>Withdraw Money</MenuItem>
+                            </Select>
 
-                        <MenuItem value={'deposit'}>Withdraw Money</MenuItem>
-                    </Select>
+                            <TextField
+                                required
+                                margin="dense"
+                                id="tname"
+                                label="Transction Name"
+                                type="text"
+                                fullWidth
+                                error={errors.name}
+                                variant="standard"
+                                placeholder="Transction Name" value={transactionName} onChange={(e) => setTransactionName(e.target.value)} tabIndex={0}
+                            />
 
-                    <TextField
-                        required
-                        margin="dense"
-                        id="tname"
-                        label="Transction Name"
-                        type="text"
-                        fullWidth
-                        error={errors.name}
-                        variant="standard"
-                        placeholder="Transction Name" value={transactionName} onChange={(e) => setTransactionName(e.target.value)} tabIndex={0}
-                    />
+                            <TextField
+                                required
+                                margin="dense"
+                                id="amount"
+                                label="Amount"
+                                type="number"
+                                fullWidth
+                                error={errors.amount}
+                                variant="standard"
+                                placeholder='Enter money' value={amount} onChange={(e) => setAmount(e.target.value)} tabIndex={0}
+                            />
 
-                    <TextField
-                    required
-                        margin="dense"
-                        id="amount"
-                        label="Amount"
-                        type="number"
-                        fullWidth
-                        error={errors.amount}
-                        variant="standard"
-                        placeholder='Enter money' value={amount} onChange={(e) => setAmount(e.target.value)} tabIndex={0}
-                    />
-
-                </FormControl>
-                </Box>
+                        </FormControl>
+                    </Box>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose} tabIndex={0}>Cancel</Button>
