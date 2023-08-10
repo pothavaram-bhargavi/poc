@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 // material-ui
 import { styled } from '@mui/material/styles';
 import { Box, List, ListItem, ListItemText, Typography } from '@mui/material';
+import { useState, useEffect } from 'react';
+
 
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
@@ -13,11 +15,14 @@ import TotalIncomeCard from 'ui-component/cards/Skeleton/TotalIncomeCard';
 
 // styles
 const CardWrapper = styled(MainCard)(({ theme }) => ({
-  backgroundColor: '#505cc2',
-  color: theme.palette.primary.light,
+  backgroundColor: '#bd5900',
+  color: '#6570c8',
+  fontWeight: 'bold',
   overflow: 'hidden',
-  position: 'relative',
-  width:'70%',
+  position: 'fixed',
+  right: '-170px',
+  top:'85px',
+  width:'300px',
   '&:after': {
     content: '""',
     position: 'absolute',
@@ -40,18 +45,41 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
   }
 }));
 
+
 // ==============================|| DASHBOARD - TOTAL INCOME DARK CARD ||============================== //
 
-const TotalIncomeDarkCard = ({ balance, isLoading }) => {
+const OtherCard= ({ balance, isLoading }) => {
   //const theme = useTheme();
+
+  const [isVisible, setIsVisible] = useState(true);
+  const [height, setHeight] = useState(0)
+  
+  useEffect(() => {   
+    window.addEventListener("scroll", listenToScroll);
+    return () => 
+       window.removeEventListener("scroll", listenToScroll); 
+  }, [])
+  
+  const listenToScroll = () => {
+    let heightToHideFrom = 30;
+    const winScroll = document.body.scrollTop || 
+        document.documentElement.scrollTop;
+    setHeight(winScroll);
+
+    if (winScroll > heightToHideFrom) {  
+         isVisible && setIsVisible(false);
+    } else {
+         setIsVisible(true);
+    }  
+  };
 
   return (
     <>
       {isLoading ? (
         <TotalIncomeCard />
       ) : (
-        <><h2>Your Card</h2>
-          <CardWrapper border={false} content={false} role="region" aria-label="Total Income Dark Card">
+        <>
+          {isVisible && <CardWrapper border={false} content={false} role="region" aria-label="Total Income Dark Card">
             <Box sx={{ p: 2,borderRadius:'20px' }}>
               <List sx={{ py: 0 }}>
                 <ListItem alignItems="center" disableGutters sx={{ py: 0 }}>
@@ -65,8 +93,8 @@ const TotalIncomeDarkCard = ({ balance, isLoading }) => {
                     aria-label="bank-name-label balance-label"
                   >
                   <div className="cardType">VISA</div>
-                   <Typography variant="h3" sx={{ color: 'primary.light', mt: 0.15,fontSize:'14px'}}>Bank of America</Typography> 
-                  <Typography variant="h4" sx={{ color: 'primary.light', mt: 0.35,fontSize:'12px' }}>
+                   <Typography variant="h3" sx={{ color: '#fcfefb', mt: 0.15,fontSize:'14px'}}>Bank of America</Typography> 
+                  <Typography variant="h4" sx={{ color: '#fcfefb', mt: 0.35,fontSize:'11px' }}>
                     Balance
                   </Typography>
                     <Typography variant="h4" sx={{ fontSize:'16px', color: '#fff',mt: 0.35 }}>
@@ -76,14 +104,14 @@ const TotalIncomeDarkCard = ({ balance, isLoading }) => {
                 </ListItem>
               </List>
             </Box>
-          </CardWrapper></>
+          </CardWrapper>}</>
       )}
     </>
   );
 };
 
-TotalIncomeDarkCard.propTypes = {
+OtherCard.propTypes = {
   isLoading: PropTypes.bool
 };
 
-export default TotalIncomeDarkCard;
+export default OtherCard;

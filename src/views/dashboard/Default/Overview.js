@@ -47,7 +47,7 @@ const Overview = () => {
   }
 
   const addEmail = () => {
-    setOpen(false); setShowMsg(true); setTimeout(() => {setShowMsg(false); setFocusButton(false)}, 2500)
+    setOpen(false); setShowMsg(true); setTimeout(() => {setShowMsg(false); setFocusButton(true)}, 2500)
 
   }
 
@@ -136,8 +136,8 @@ const Overview = () => {
                   <h3 style={{ fontSize: '12px' }}>by upgrading your plan to premium</h3></Box>
               </Grid>
               <Grid item lg={4} md={4} sm={4} xs={4} style={{ position: 'relative' }}>
-                <Button autoFocus={focusButton} classes={{ focusVisible: classes.focusStyle }} className={classes.hoverStyle} variant="outlined" style={{ backgroundColor: 'white', color: '#0378d5', border: '1px solid white', borderRadius: '18px', marginLeft: '80px' }} tabIndex={0} role="button" aria-label="Upgrade Now" onClick={() => openDialog()}>Upgrade Now</Button>
-                <OverviewDialogBox addEmail={addEmail} handleClose={handleClose} openDialog={open} />
+                <Button autoFocus={focusButton}  className={classes.hoverStyle} variant="outlined" style={{ backgroundColor: 'white', color: '#0378d5', border: '1px solid white', borderRadius: '18px', marginLeft: '80px' }} tabIndex={0} role="button" aria-label="Upgrade Now" onClick={() => openDialog()}>Upgrade Now</Button>
+                <OverviewDialogBox addEmail={addEmail} handleClose={handleClose} openDialog={open} tabIndex={0}/>
               </Grid>
             </Grid>
           </Grid>

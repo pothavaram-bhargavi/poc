@@ -111,7 +111,7 @@ export default function TransactionDialog({ openDialog, transactiontype, setTran
                                 fullWidth
                                 error={errors.name}
                                 variant="standard"
-                                placeholder="Transction Name" value={transactionName} onChange={(e) => setTransactionName(e.target.value)} tabIndex={0}
+                                placeholder="Transction Name" value={transactionName} onChange={(e) => setTransactionName(e.target.value)} 
                             />
 
                             <TextField
@@ -123,7 +123,7 @@ export default function TransactionDialog({ openDialog, transactiontype, setTran
                                 fullWidth
                                 error={errors.amount}
                                 variant="standard"
-                                placeholder='Enter money' value={amount} onChange={(e) => setAmount(e.target.value)} tabIndex={0}
+                                placeholder='Enter money' value={amount} onChange={(e) => setAmount(e.target.value)} 
                             />
 
                         </FormControl>
