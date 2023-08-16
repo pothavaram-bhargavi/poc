@@ -38,8 +38,10 @@ export default function TransactionDialog({ openDialog, transactiontype, setTran
             err.name = '';
         }
 
-        if (amount === '' || amount === 0) {
+        if (amount === '') {
             err.amount = 'Transction amount required';
+        } else if (amount < 1){ 
+            err.amount = 'Transcation amount must be greater than 0'
         } else {
             err.amount = '';
         }
@@ -54,7 +56,15 @@ export default function TransactionDialog({ openDialog, transactiontype, setTran
             setTransactiontype('');
             setTransactionName('');
             setAmount('');
-            handleClose()
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ type:transactiontype,name:transactionName,amount:parseInt(amount) })
+            };
+            fetch('http://localhost:3000/createTransaction', requestOptions)
+                .then(response => response.json())
+                .then((data)=> handleClose());
+            
         }
     }
 
@@ -125,6 +135,7 @@ export default function TransactionDialog({ openDialog, transactiontype, setTran
                                 variant="standard"
                                 placeholder='Enter money' value={amount} onChange={(e) => setAmount(e.target.value)} 
                             />
+                            {errors.amount && <span class="error">{errors.amount}</span>}
 
                         </FormControl>
                     </Box>

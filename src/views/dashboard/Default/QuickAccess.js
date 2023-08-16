@@ -11,45 +11,46 @@ import { Avatar, Box, Grid, Typography } from '@mui/material';
 import MainCard from 'ui-component/cards/MainCard';
 
 const CardWrapper = styled(MainCard)(({ theme }) => ({
-  backgroundColor: '#fff',
-  width: 80,
-  height: 80
-//   color: '#fff',
-//   overflow: 'hidden',
-//   position: 'relative',
-//   '&:after': {
-//     content: '""',
-//     position: 'absolute',
-//     width: 100,
-//     height: 100,
-//     borderRadius: '50%',
-//     top: -85,
-//     right: -95,
-//     [theme.breakpoints.down('sm')]: {
-//       top: -105,
-//       right: -140
-//     }
-//   },
-//   '&:before': {
-//     content: '""',
-//     position: 'absolute',
-//     width: 100,
-//     height: 100,
-//     borderRadius: '50%',
-//     top: -125,
-//     right: -15,
-//     opacity: 0.5,
-//     [theme.breakpoints.down('sm')]: {
-//       top: -155,
-//       right: -70
-//     }
-//   }
+    backgroundColor: '#fff',
+    width: 80,
+    height: 80,
+    padding:5
+    //   color: '#fff',
+    //   overflow: 'hidden',
+    //   position: 'relative',
+    //   '&:after': {
+    //     content: '""',
+    //     position: 'absolute',
+    //     width: 100,
+    //     height: 100,
+    //     borderRadius: '50%',
+    //     top: -85,
+    //     right: -95,
+    //     [theme.breakpoints.down('sm')]: {
+    //       top: -105,
+    //       right: -140
+    //     }
+    //   },
+    //   '&:before': {
+    //     content: '""',
+    //     position: 'absolute',
+    //     width: 100,
+    //     height: 100,
+    //     borderRadius: '50%',
+    //     top: -125,
+    //     right: -15,
+    //     opacity: 0.5,
+    //     [theme.breakpoints.down('sm')]: {
+    //       top: -155,
+    //       right: -70
+    //     }
+    //   }
 }));
 
 const QuickAccess = ({ name, icon, addTransaction }) => {
     const theme = useTheme();
 
-  
+
     const [open, setOpen] = useState(false);
     const openDialog = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -69,37 +70,34 @@ const QuickAccess = ({ name, icon, addTransaction }) => {
     return (
         <>
 
-            <CardWrapper role="button" onClick={openDialog}  onKeyDown={(event) => { if ( event.key === "Enter") { openDialog() }}} border={false} content={false} tabIndex={0} aria-label={`Quick Access to ${name}`} >
-                <Box sx={{ p: 2.25 }}>
-                    <Grid container direction="column">
+            <CardWrapper role="button" onClick={openDialog} onKeyDown={(event) => { if (event.key === "Enter") { openDialog() } }} border={false} content={false} tabIndex={0} aria-label={`Quick Access to ${name}`} >
+                <Box>
+                    <Grid container direction="column" alignItems={'center'}>
                         <Grid item>
-                            <Grid container justifyContent="space-between" alignItems="center">
-                                <Grid item>
-                                    <Avatar
-                                        variant="rounded"
-                                        sx={{
-                                            ...theme.typography.commonAvatar,
-                                            ...theme.typography.largeAvatar,
-                                            backgroundColor: '#ffffff',
-                                            bordeRadius: '20px',
-                                            textAlign: 'center',
-                                        }}
-                                    >
-                                        {icon}
-                                    </Avatar>
-                                </Grid>
-                            </Grid>
+                            <Avatar
+                                variant="rounded"
+                                sx={{
+                                    ...theme.typography.commonAvatar,
+                                    ...theme.typography.largeAvatar,
+                                    backgroundColor: '#ffffff',
+                                    bordeRadius: '20px',
+                                    textAlign: 'center',
+                                }}
+                            >
+                                {icon}
+                            </Avatar>
                         </Grid>
-                        <Grid item sx={{ mb: 1.25 }}>
+                        <Grid item >
                             <Typography
                                 sx={{
                                     fontSize: '0.8rem',
                                     fontWeight: 300,
-                                    color:'black',
-                                    
-                                    
+                                    color: 'black',
+                                    textAlign: 'center',
+
+
                                 }}
-                                
+
                             >
                                 {name}
                             </Typography>

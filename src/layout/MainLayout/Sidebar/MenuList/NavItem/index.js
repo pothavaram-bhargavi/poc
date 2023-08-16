@@ -87,7 +87,8 @@ const NavItem = ({ item, level }) => {
       name={item.icon +' link' ?? ''}
       tabIndex={0}
       onClick={() => itemHandler(item.id)}
-      aria-label='Icon'
+      aria-label={item.icon}
+      role='menuitem'
      >
       
 

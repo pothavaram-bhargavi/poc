@@ -8,6 +8,7 @@ import { Avatar, CardContent, Divider, Grid, Typography } from '@mui/material';
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
 import { gridSpacing } from 'store/constant';
+import { useEffect } from 'react';
 
 // assets
 // import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
@@ -17,6 +18,7 @@ import { gridSpacing } from 'store/constant';
 
 const PopularCard = ({ transactions }) => {
 
+  
 
   return (
 
@@ -51,7 +53,7 @@ const PopularCard = ({ transactions }) => {
                     </Grid>
                     <Grid item xs={8}>
                       <Typography variant="h5" color="inherit">
-                        {item.transactionName}
+                        {item.name}
                       </Typography>
                       <Typography variant="subtitle2" color="inherit">
                         {item.date}

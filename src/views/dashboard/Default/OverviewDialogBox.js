@@ -23,6 +23,14 @@ const OverviewDialogBox = ({ openDialog, addEmail, handleClose }) => {
     } else {
       setEmailError('')
       addEmail();
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email:email })
+    };
+    fetch('http://localhost:3000/subscribe', requestOptions)
+        .then(response => response.json())
+        .then((data)=> handleClose());
     }
 
   }

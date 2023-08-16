@@ -31,6 +31,13 @@ const Dashboard = () => {
 
   const [balance, setBalance] = useState(0);
   const [transactions, setTransactions] = useState([]);
+  
+
+  useEffect(()=>{
+    fetch('http://localhost:3000/transactionList')
+    .then(response=>response.json())
+    .then(list => setTransactions(list));
+  },[])
 
   const addTransaction = (transactionName, transactiontype, amount) => {
     if (transactiontype == 'credit') {
@@ -42,11 +49,12 @@ const Dashboard = () => {
 
     setTransactions([...transactions, {
       "icon": <CropPortraitIcon />,
-      "transactionName": transactionName,
+      "name": transactionName,
       "date": new Date().toLocaleString(),
       "amount": amount,
       "type": transactiontype
     }]);
+   
   }
 
   return (
