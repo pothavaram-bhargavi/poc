@@ -112,7 +112,7 @@ const Overview = () => {
                 sx={{ ml: 1, flex: 1 }}
                 placeholder="Search"
                 inputProps={{ 'aria-label': 'search' }}
-                tabIndex={0}
+                
                 value={searchValue}
                 onChange={(event) => setSearchValue(event.target.value)}
               />}

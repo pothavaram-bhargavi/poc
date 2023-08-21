@@ -90,7 +90,7 @@ const OtherCard= ({ balance, isLoading }) => {
                       mt: 0.45,
                       mb: 0.45
                     }}
-                    aria-label="bank-name-label balance-label"
+                    
                   >
                   <div className="cardType">VISA</div>
                    <Typography variant="h3" sx={{ color: '#fcfefb', mt: 0.15,fontSize:'14px'}}>Bank of America</Typography> 

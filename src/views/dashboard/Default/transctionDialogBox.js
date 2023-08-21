@@ -51,7 +51,7 @@ export default function TransactionDialog({ openDialog, transactiontype, setTran
         console.log(transactionName, transactiontype, amount);
         console.log(errors);
 
-        if (transactionName !== '' && transactiontype !== '' && (amount !== '' || amount > 0)) {
+        if (transactionName !== '' && transactiontype !== '' && (amount !== '' && amount > 0)) {
             addTransaction(transactionName, transactiontype, amount);
             setTransactiontype('');
             setTransactionName('');
@@ -89,14 +89,14 @@ export default function TransactionDialog({ openDialog, transactiontype, setTran
 
     return (
         <div>
-            <Dialog open={open} onClose={closeBox} aria-label="Add Transaction Dialog">
+            <Dialog open={open} onClose={closeBox} aria-label="Add Transaction Dialog" role='dialog'>
                 <DialogTitle>Add Transaction</DialogTitle>
                 <DialogContent>
                     <Box sx={{ minWidth: 300, marginTop: 2 }}>
                         <FormControl fullWidth>
-                            <InputLabel id="demo-simple-select-label">Select Transfer Type</InputLabel>
+                            <label className={errors.type ? 'error' : ''} id="demo-simple-select-label">Select Transfer Type</label>
                             
-                            <Select
+                            <select
                                 required
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select"
@@ -104,13 +104,14 @@ export default function TransactionDialog({ openDialog, transactiontype, setTran
                                 label="Transction type"
                                 error={errors.type}
                                 onChange={(event) => changeType(event)}
-                                
-                            >
+                                className="classic"
+                            >   
+                                <option value="">--Select Type--</option>
+                                <option  value={'credit'}>Add Money</option>
 
-                                <MenuItem  tabIndex={0} value={'credit'}>Add Money</MenuItem>
-
-                                <MenuItem tabIndex={0} value={'deposit'}>Withdraw Money</MenuItem>
-                            </Select>
+                                <option  value={'deposit'}>Withdraw Money</option>
+                            </select>
+                            {errors.type && <span class="error">{errors.type}</span>}
 
                             <TextField
                                 required

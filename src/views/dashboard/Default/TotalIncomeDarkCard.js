@@ -51,7 +51,7 @@ const TotalIncomeDarkCard = ({ balance, isLoading }) => {
         <TotalIncomeCard />
       ) : (
         <><h2>Your Card</h2>
-          <CardWrapper border={false} content={false} role="region" aria-label="Total Income Dark Card">
+          <CardWrapper border={false} content={false} tabIndex={0} role="region" aria-label="Total Income Dark Card">
             <Box sx={{ p: 2,borderRadius:'20px' }}>
               <List sx={{ py: 0 }}>
                 <ListItem alignItems="center" disableGutters sx={{ py: 0 }}>
@@ -62,14 +62,15 @@ const TotalIncomeDarkCard = ({ balance, isLoading }) => {
                       mt: 0.45,
                       mb: 0.45
                     }}
-                    aria-label="bank-name-label balance-label"
+                    aria-label="bank-name-label"
+                    role='region'
                   >
                   <div className="cardType">VISA</div>
-                   <Typography variant="h3" sx={{ color: 'primary.light', mt: 0.15,fontSize:'14px'}}>Bank of America</Typography> 
-                  <Typography variant="h4" sx={{ color: 'primary.light', mt: 0.35,fontSize:'12px' }}>
+                   <Typography variant="h3" aria-label='bank of america'  role="contentinfo" sx={{ color: 'primary.light', mt: 0.15,fontSize:'14px'}}>Bank of America</Typography> 
+                  <Typography variant="h4"  aria-label='balance'  role="contentinfo" sx={{ color: 'primary.light', mt: 0.35,fontSize:'12px' }}>
                     Balance
                   </Typography>
-                    <Typography variant="h4" sx={{ fontSize:'16px', color: '#fff',mt: 0.35 }}>
+                    <Typography  aria-label='balance'  role="contentinfo" variant="h4" sx={{ fontSize:'16px', color: '#fff',mt: 0.35 }}>
                     ${balance}
                   </Typography>
                   </ListItemText>

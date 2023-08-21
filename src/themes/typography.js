@@ -84,7 +84,8 @@ export default function themeTypography(theme) {
       },
       '& fieldset': {
         top: 0
-      }
+      },
+      
     },
     mainContent: {
       backgroundColor: theme.background,

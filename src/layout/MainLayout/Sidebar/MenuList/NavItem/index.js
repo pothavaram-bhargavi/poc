@@ -72,6 +72,7 @@ const NavItem = ({ item, level }) => {
   }, [pathname]);
 
   return (
+    <li role='menu'>
      <ListItemText 
       {...listItemProps}
       disabled={item.disabled}
@@ -89,10 +90,11 @@ const NavItem = ({ item, level }) => {
       onClick={() => itemHandler(item.id)}
       aria-label={item.icon}
       role='menuitem'
+      
      >
       
 
-        {item.icon == 'Home' && <HomeOutlinedIcon name="Home" />}
+        {item.icon == 'Home' && <HomeOutlinedIcon name="Home"/>}
 
         {item.icon == 'chat' && <BarChartOutlinedIcon name="Chat"/>}
         {item.icon == 'payment' && <PaymentOutlinedIcon name="Payment"/>}
@@ -122,6 +124,7 @@ const NavItem = ({ item, level }) => {
         />
       )} */}
       </ListItemText>
+    </li>
   );
 };
 

@@ -29,7 +29,7 @@ const PopularCard = ({ transactions }) => {
           <Grid item xs={12}>
             <Grid container alignContent="center" justifyContent="space-between">
               <Grid item>
-                <Typography variant="h4">Recent Transactions</Typography>
+                <Typography variant="h3" sx={{fontSize:'16px'}}>Recent Transactions</Typography>
               </Grid>
               <Grid item>
                 ...
@@ -52,12 +52,12 @@ const PopularCard = ({ transactions }) => {
                       </Avatar>
                     </Grid>
                     <Grid item xs={8}>
-                      <Typography variant="h5" color="inherit">
+                      <Typography variant="h4" color="inherit" sx={{fontSize:'14px'}}>
                         {item.name}
                       </Typography>
-                      <Typography variant="subtitle2" color="inherit">
+                      {/* <Typography variant="subtitle2" color="inherit">
                         {item.date}
-                      </Typography>
+                      </Typography> */}
                     </Grid>
                     <Grid item  xs={2}>
                       <Grid container alignItems="center" justifyContent="space-between">
