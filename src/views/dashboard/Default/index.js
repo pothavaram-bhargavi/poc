@@ -76,26 +76,26 @@ const Dashboard = () => {
             <Grid container spacing={gridSpacing} >
               <Grid item xs={12} md={12} >
                 <h3 style={{ color: 'black' }}>Quick Access</h3>
-                <div style={{ display: 'flex', background: '#f7f8fa', gap: '25px', padding: '5px', width: '91.5%' }}>
-                  <div style={{ boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.1)', borderRadius: '5px' }}>
+                <div style={{ display: 'flex', gap: '25px', padding: '5px', width: '91.5%' }}>
+                  <div style={{ boxShadow: ('8px 10px 20px 0 rgba(239,239,239,1)', '-8px -8px 20px 0 rgba(239,239,239,0.7)'),transition:'box-shadow 0.3s ease-in-out' }}>
                     <QuickAccess name='Transfer' icon={<PaymentOutlinedIcon />} addTransaction={addTransaction} />
                   </div>
-                  <div style={{ boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.1)' }}>
+                  <div style={{ boxShadow: ('8px 10px 20px 0 rgba(239,239,239,1)', '-8px -8px 20px 0 rgba(239,239,239,0.7)'),transition:'box-shadow 0.3s ease-in-out'}}>
                     <QuickAccess name='Electricity' icon={<BoltOutlinedIcon />} addTransaction={addTransaction} />
                   </div>
-                  <div style={{ boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.1)' }}>
+                  <div style={{ boxShadow: ('8px 10px 20px 0 rgba(239,239,239,1)', '-8px -8px 20px 0 rgba(239,239,239,0.7)'),transition:'box-shadow 0.3s ease-in-out'}}>
                     <QuickAccess name='Gas' icon={<LocalFireDepartmentOutlinedIcon />} addTransaction={addTransaction} />
                   </div>
-                  <div style={{ boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.1)' }}>
+                  <div style={{boxShadow: ('8px 10px 20px 0 rgba(239,239,239,1)', '-8px -8px 20px 0 rgba(239,239,239,0.7)'),transition:'box-shadow 0.3s ease-in-out'}}>
                     <QuickAccess name='Data' icon={<CropPortraitIcon />} addTransaction={addTransaction} />
                   </div>
-                  <div style={{ boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.1)' }}>
+                  <div style={{ boxShadow: ('8px 10px 20px 0 rgba(239,239,239,1)', '-8px -8px 20px 0 rgba(239,239,239,0.7)'),transition:'box-shadow 0.3s ease-in-out' }}>
                     <QuickAccess name='Shopping' icon={<LocalMallOutlinedIcon />} addTransaction={addTransaction} />
                   </div>
-                  <div style={{ boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.1)' }}>
+                  <div style={{ boxShadow: ('8px 10px 20px 0 rgba(239,239,239,1)', '-8px -8px 20px 0 rgba(239,239,239,0.7)'),transition:'box-shadow 0.3s ease-in-out' }}>
                     <QuickAccess name='fooder' icon={<LocalMallOutlinedIcon />} addTransaction={addTransaction} />
                   </div>
-                  <div style={{ boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.1)' }}>
+                  <div style={{ boxShadow: ('8px 10px 20px 0 rgba(239,239,239,1)', '-8px -8px 20px 0 rgba(239,239,239,0.7)'),transition:'box-shadow 0.3s ease-in-out'}}>
                     <QuickAccess name='groceries' icon={<LocalMallOutlinedIcon />} addTransaction={addTransaction} />
                   </div>
                 </div>
