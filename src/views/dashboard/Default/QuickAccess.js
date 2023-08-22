@@ -105,7 +105,7 @@ const QuickAccess = ({ name, icon, addTransaction }) => {
                     </Grid>
                 </Box>
             </CardWrapper>
-            <TransactionDialog handleClose={handleClose} openDialog={open} setTransactiontype={setTransactiontype} transactiontype={transactiontype} addTransaction={addTransaction} />
+                <TransactionDialog handleClose={handleClose} openDialog={open} setTransactiontype={setTransactiontype} transactiontype={transactiontype} addTransaction={addTransaction} />
         </>
 
     )

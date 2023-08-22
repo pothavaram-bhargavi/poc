@@ -66,6 +66,7 @@ export default function TransactionDialog({ openDialog, transactiontype, setTran
                 .then((data)=> handleClose());
             
         }
+        closeBox()
     }
 
     React.useEffect(() => {
@@ -82,9 +83,10 @@ export default function TransactionDialog({ openDialog, transactiontype, setTran
         setTransactiontype('');
             setTransactionName('');
             setAmount('');
+            console.log("came Here")
             handleClose()
     }
-
+//    console.log(handleClose);
 
 
     return (
@@ -144,7 +146,7 @@ export default function TransactionDialog({ openDialog, transactiontype, setTran
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose} tabIndex={0}>Cancel</Button>
-                    <Button onClick={() => add()} tabIndex={0}>Add Transaction </Button>
+                    <Button onClick={add} tabIndex={0}>Add Transaction </Button>
                 </DialogActions>
             </Dialog>
         </div>
