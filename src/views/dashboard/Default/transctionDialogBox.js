@@ -105,6 +105,7 @@ export default function TransactionDialog({ openDialog, transactiontype, setTran
                                 error={errors.type}
                                 onChange={(event) => changeType(event)}
                                 className="classic"
+                                
                             >   
                                 <option value="">--Select Type--</option>
                                 <option  value={'credit'}>Add Money</option>
@@ -117,7 +118,7 @@ export default function TransactionDialog({ openDialog, transactiontype, setTran
                                 required
                                 margin="dense"
                                 id="tname"
-                                label="Transction Name"
+                                label="Transaction Name"
                                 type="text"
                                 fullWidth
                                 error={errors.name}
@@ -143,7 +144,7 @@ export default function TransactionDialog({ openDialog, transactiontype, setTran
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose} tabIndex={0}>Cancel</Button>
-                    <Button onClick={() => add()} tabIndex={0}>Add Transction </Button>
+                    <Button onClick={() => add()} tabIndex={0}>Add Transaction </Button>
                 </DialogActions>
             </Dialog>
         </div>
